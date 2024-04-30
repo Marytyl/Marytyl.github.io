@@ -16,7 +16,7 @@
 title: Marytyl
 #email: 
 description: > # this means to ignore newlines until "baseurl:"
-  Hello. I'm Maryam AKA Marytyl and this is my personal blog.
+  Hey there. I am Maryam Rezapour (AKA Marytyl).
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: _Marytyl_
