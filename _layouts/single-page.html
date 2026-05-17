@@ -1,68 +1,59 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+---
+layout: default
+---
 
-  {%- include head.html -%}
+<nav class="navbar">
+  <div class="navbar-brand">
+    <h1 class="site-title">{{ site.title | escape }}</h1>
+  </div>
+  <ul class="navbar-nav" id="navBar">
+    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+    <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
+    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <body>
+<div class="site-container">
+  <main class="main-content">
+    {{ content }}
+  </main>
+</div>
 
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <h1 class="site-title">{{ site.title | escape }}</h1>
-      </div>
-      <ul class="navbar-nav" id="navBar">
-        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
-        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-        <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-      </ul>
-    </nav>
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('.page-section');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-    <div class="site-container">
-      <main class="main-content">
-        {{ content }}
-      </main>
-    </div>
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
 
-    {%- include footer.html -%}
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === current) {
+        link.classList.add('active');
+      }
+    });
+  });
 
-    <script>
-      // Highlight active nav link on scroll
-      const sections = document.querySelectorAll('.page-section');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          
-          if (scrollY >= sectionTop - 100) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('data-section') === current) {
-            link.classList.add('active');
-          }
-        });
-      });
-
-      // Smooth scroll on nav link click
-      navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetSection = link.getAttribute('data-section');
-          const targetElement = document.getElementById(targetSection);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-    </script>
-
-  </body>
-
-</html>
+  // Smooth scroll on nav link click
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSection = link.getAttribute('data-section');
+      const targetElement = document.getElementById(targetSection);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
