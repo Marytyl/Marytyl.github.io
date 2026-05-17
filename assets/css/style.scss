@@ -17,10 +17,19 @@ $base-font-size: 16px;
 $base-line-height: 1.6;
 
 // Light theme background
-body {
+html, body {
   background-color: $background-light;
   color: $text-color;
   scroll-behavior: smooth;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// Hide default site header
+.site-header {
+  display: none;
 }
 
 // Sticky Navigation Bar
@@ -32,11 +41,13 @@ body {
   background-color: $background-lighter;
   border-bottom: 2px solid $border-color;
   padding: 0 20px;
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 70px;
 }
 
 .navbar-brand {
@@ -49,6 +60,7 @@ body {
   font-weight: 700;
   font-size: 1.5em;
   margin: 0;
+  padding: 0;
   
   &:hover {
     color: $secondary-color;
@@ -56,11 +68,18 @@ body {
 }
 
 .navbar-nav {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   gap: 30px;
+}
+
+.navbar-nav li {
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .nav-link {
@@ -83,12 +102,12 @@ body {
   }
 }
 
-// Adjust body to account for fixed navbar
+// Adjust content to account for fixed navbar
 .site-container {
   margin-top: 70px;
+  width: 100%;
 }
 
-// Main content
 .main-content {
   width: 100%;
 }
@@ -101,11 +120,14 @@ body {
   flex-direction: column;
   justify-content: center;
   scroll-margin-top: 70px;
+  width: 100%;
+  box-sizing: border-box;
   
   h1 {
     color: $primary-color;
     font-size: 2.5em;
     margin-bottom: 30px;
+    margin-top: 0;
   }
 }
 
@@ -128,13 +150,7 @@ body {
 .section-content {
   max-width: 900px;
   margin: 0 auto;
-}
-
-// Header styling
-.site-header {
-  background-color: transparent;
-  border: none;
-  display: none;
+  width: 100%;
 }
 
 // Links
@@ -223,7 +239,7 @@ a {
   background-color: $background-lighter;
   border-top: 2px solid $border-color;
   padding-top: 2em;
-  margin-top: 3em;
+  margin-top: 0;
 }
 
 // Code blocks
@@ -263,6 +279,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid $border-color;
     border-radius: 4px;
     font-family: inherit;
+    box-sizing: border-box;
     
     &:focus {
       outline: none;
@@ -272,26 +289,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-// Smooth transitions
-* {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
 // Mobile responsive
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     padding: 10px 20px;
+    height: auto;
     gap: 10px;
   }
   
   .navbar-nav {
-    gap: 15px;
+    gap: 15px !important;
     justify-content: center;
   }
   
   .site-container {
-    margin-top: 120px;
+    margin-top: 140px;
   }
   
   .page-section {
@@ -314,15 +327,11 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 1em;
     }
   }
-  
-  h1 {
-    font-size: 1.75em;
-  }
 }
 
 @media (max-width: 480px) {
   .navbar-nav {
-    gap: 10px;
+    gap: 10px !important;
     font-size: 0.9em;
   }
   
