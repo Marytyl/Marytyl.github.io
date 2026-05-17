@@ -20,31 +20,121 @@ $base-line-height: 1.6;
 body {
   background-color: $background-light;
   color: $text-color;
+  scroll-behavior: smooth;
 }
 
-// Header styling
-.site-header {
+// Sticky Navigation Bar
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: $background-lighter;
   border-bottom: 2px solid $border-color;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.site-title {
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .site-title {
   color: $primary-color;
   font-weight: 700;
+  font-size: 1.5em;
+  margin: 0;
   
   &:hover {
     color: $secondary-color;
   }
 }
 
-// Navigation styling
-.site-nav .page-link {
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav-link {
   color: $text-color;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
   
   &:hover {
     color: $primary-color;
-    border-bottom: 2px solid $primary-color;
+    border-bottom-color: $primary-color;
   }
+  
+  &.active {
+    color: $primary-color;
+    border-bottom-color: $primary-color;
+  }
+}
+
+// Adjust body to account for fixed navbar
+.site-container {
+  margin-top: 70px;
+}
+
+// Main content
+.main-content {
+  width: 100%;
+}
+
+// Page sections
+.page-section {
+  min-height: 100vh;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-margin-top: 70px;
+  
+  h1 {
+    color: $primary-color;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+}
+
+.home-section {
+  background-color: $background-lighter;
+}
+
+.about-section {
+  background-color: $background-light;
+}
+
+.research-section {
+  background-color: $background-lighter;
+}
+
+.contact-section {
+  background-color: $background-light;
+}
+
+.section-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// Header styling
+.site-header {
+  background-color: transparent;
+  border: none;
+  display: none;
 }
 
 // Links
@@ -102,6 +192,7 @@ a {
   h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    color: white;
   }
   
   p {
@@ -151,7 +242,7 @@ pre {
   overflow-x: auto;
 }
 
-// Responsive typography
+// Typography
 h1, h2, h3, h4, h5, h6 {
   color: $primary-color;
   font-weight: 700;
@@ -188,6 +279,30 @@ h1, h2, h3, h4, h5, h6 {
 
 // Mobile responsive
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  
+  .navbar-nav {
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .site-container {
+    margin-top: 120px;
+  }
+  
+  .page-section {
+    min-height: auto;
+    padding: 40px 20px;
+    
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+  
   .hero {
     padding: 40px 15px;
     
@@ -202,5 +317,16 @@ h1, h2, h3, h4, h5, h6 {
   
   h1 {
     font-size: 1.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav {
+    gap: 10px;
+    font-size: 0.9em;
+  }
+  
+  .nav-link {
+    padding: 8px 0;
   }
 }
