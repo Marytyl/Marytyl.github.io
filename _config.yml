@@ -27,7 +27,7 @@ scholar_username: jhfjdhf
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile
