@@ -1,0 +1,206 @@
+---
+---
+
+@import "minima";
+
+// Color palette
+$primary-color: #0066cc;
+$secondary-color: #00a8a8;
+$accent-color: #005599;
+$background-light: #fafafa;
+$background-lighter: #ffffff;
+$text-color: #333333;
+$border-color: #e0e0e0;
+
+// Override base variables
+$base-font-size: 16px;
+$base-line-height: 1.6;
+
+// Light theme background
+body {
+  background-color: $background-light;
+  color: $text-color;
+}
+
+// Header styling
+.site-header {
+  background-color: $background-lighter;
+  border-bottom: 2px solid $border-color;
+}
+
+.site-title {
+  color: $primary-color;
+  font-weight: 700;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Navigation styling
+.site-nav .page-link {
+  color: $text-color;
+  
+  &:hover {
+    color: $primary-color;
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $secondary-color;
+    text-decoration: underline;
+  }
+}
+
+// Buttons
+.btn, button, input[type="submit"] {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+// Cards
+.card {
+  background-color: $background-lighter;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// Hero section
+.hero {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+}
+
+// Post styling
+.post-header {
+  margin-bottom: 2em;
+  border-bottom: 2px solid $border-color;
+  padding-bottom: 1em;
+}
+
+.post-title {
+  color: $primary-color;
+  font-size: 2em;
+}
+
+.post-meta {
+  color: #999;
+  font-size: 0.9em;
+}
+
+// Footer styling
+.site-footer {
+  background-color: $background-lighter;
+  border-top: 2px solid $border-color;
+  padding-top: 2em;
+  margin-top: 3em;
+}
+
+// Code blocks
+code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #d63384;
+}
+
+pre {
+  background-color: #f4f4f4;
+  border-left: 4px solid $primary-color;
+  padding: 12px 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+// Responsive typography
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+// Contact form styling
+.contact-form {
+  background-color: $background-lighter;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-family: inherit;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+  }
+}
+
+// Smooth transitions
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 15px;
+    
+    h1 {
+      font-size: 1.8em;
+    }
+    
+    p {
+      font-size: 1em;
+    }
+  }
+  
+  h1 {
+    font-size: 1.75em;
+  }
+}
